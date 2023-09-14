@@ -9,4 +9,7 @@ cat GCF_029890125.1_OSU_Roscu_1.1_genomic.fna.out | tail -n +4 | awk '{print $5,
 #Remove variants that fall within annotated repeat windows
  bedtools intersect -v -a populations_filtered.recode.vcf -b repeats.bed -wa -header > final.vcf
 
+#format file names to match original metadata
+ sed -i 's/_filt//g' final.vcf
+
 
